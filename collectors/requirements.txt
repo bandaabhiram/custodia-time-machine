@@ -1,0 +1,8 @@
+azure-identity>=1.14.0
+azure-mgmt-network>=25.0.0
+azure-mgmt-keyvault>=10.2.0
+azure-mgmt-resource>=23.0.0
+azure-cosmos>=4.5.0
+msgraph-core>=1.0.0
+requests>=2.31.0
+python-dateutil>=2.8.2

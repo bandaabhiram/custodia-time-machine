@@ -1,0 +1,8 @@
+// Detect configuration changes outside maintenance windows
+SecuritySnapshot_CL
+| where timestamp between (ago(7d) .. now())
+| extend Hour = datetime_part("hour", timestamp)
+| where Hour < 8 or Hour > 18
+| summarize ChangeCount = count() by resourceType, bin(timestamp, 1h)
+| where ChangeCount > 5
+| render timechart

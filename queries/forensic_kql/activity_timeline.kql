@@ -1,0 +1,7 @@
+// Forensic KQL: Build a timeline of all configuration changes for a resource
+SecuritySnapshot_CL
+| where resourceId == "TARGET_RESOURCE_ID"
+| order by timestamp desc
+| project timestamp, resourceName, resourceType, properties
+| extend RulesCount = array_length(properties.securityRules)
+| project timestamp, resourceName, RulesCount
